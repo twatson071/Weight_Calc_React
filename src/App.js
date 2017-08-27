@@ -121,10 +121,10 @@ class App extends Component {
                 <input type="number" id="inputWeight" value={this.state.finals} onChange={this.handleChange}>
                 </input>
                 <div>
+                <label>Bar Weight:</label>
                   <input type="radio" value="35" name="barWeight" onChange={this.onBarWeightChange} /> 35 lb
         <input type="radio" value="45" name="barWeight" onChange={this.onBarWeightChange} checked={true} /> 45 lb
-      </div>
-
+                </div>
                 <Button color="danger" type="button" onClick={this.handleSubmit}>Submit</Button>
               </form>
             </Col>
@@ -149,7 +149,7 @@ class App extends Component {
         </Container>
         <div className="App-footer footer">
           
-          <a href="http://twatson071.ghithub.io"><h6>Thomas Watson</h6></a><br></br>
+          <a href="https://twatson071.github.io/#/"><h6>Thomas Watson</h6></a><br></br>
         </div>
 
       </div>
