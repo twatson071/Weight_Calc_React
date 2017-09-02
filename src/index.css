@@ -46,6 +46,9 @@ list-group {
   border-color: #DF3055
 }
 
+.margin25 {
+  margin-left: 25%;
+}
 
 #header,#footer,#content { position:absolute; right:0;left:0}
 
