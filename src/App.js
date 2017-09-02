@@ -113,6 +113,7 @@ class App extends Component {
     this.setState({plate10: 0});
     this.setState({plate5: 0});
     this.setState({plate2: 0});
+    this.setState({finals: ''})
   }
 isActive(value) {
   return 'platenumber ' + ((value !== 0) ? 'active' : 'default');
