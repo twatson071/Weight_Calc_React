@@ -107,6 +107,7 @@ class App extends Component {
       .getElementById("inputWeight")
       .value = 0;
     this.reset();
+    event.preventDefault();
   }
   reset() {
     this.setState({plate45: 0});
@@ -154,11 +155,11 @@ class App extends Component {
                     checked={true}/>
                   45 lb
                 </div>
-                <Button color="danger" size="lg" type="button" onClick={this.handleSubmit}>Submit</Button>
+                <Button color="danger" size="lg" type="submit">Submit</Button>
               </form>
             </Col>
 
-            <Col sm={{ size: 'auto'}}>
+            <Col sm={{ size: 'auto', offset: 1 }}>
               <label>Plates per side:
                 <ListGroup>
                   <ListGroupItem className={this.isActive(this.plates.inputWeight)}>Weight: {this.plates.inputWeight}
