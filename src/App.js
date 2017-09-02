@@ -1,7 +1,12 @@
-import React, {
-  Component
-} from 'react';
-import { Button, ListGroup, ListGroupItem, Container,Row, Col } from 'reactstrap';
+import React, {Component} from 'react';
+import {
+  Button,
+  ListGroup,
+  ListGroupItem,
+  Container,
+  Row,
+  Col
+} from 'reactstrap';
 import logo from './health.svg';
 import './App.css';
 
@@ -27,9 +32,15 @@ class App extends Component {
       plate2: 0,
       inputWeight: 0
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.onBarWeightChange = this.onBarWeightChange.bind(this);
+    this.handleChange = this
+      .handleChange
+      .bind(this);
+    this.handleSubmit = this
+      .handleSubmit
+      .bind(this);
+    this.onBarWeightChange = this
+      .onBarWeightChange
+      .bind(this);
   }
   handleChange(event) {
     this.setState({finals: event.target.value});
@@ -39,11 +50,10 @@ class App extends Component {
   }
   handleSubmit(event) {
     this.plates.inputWeight = this.state.finals;
-    if(this.state.barWeight===45) {
-      this.state.finals -=45;
-    }
-    else {
-      this.state.finals -=35;
+    if (this.state.barWeight === 45) {
+      this.state.finals -= 45;
+    } else {
+      this.state.finals -= 35;
     }
     //counts the required plates 45 lb
     while (this.state.finals >= 90) {
@@ -93,7 +103,9 @@ class App extends Component {
     this.setState({plate2: this.state.plate2});
     this.plates.plate2 = this.state.plate2;
 
-    document.getElementById("inputWeight").value = 0;
+    document
+      .getElementById("inputWeight")
+      .value = 0;
     this.reset();
   }
   reset() {
@@ -104,52 +116,80 @@ class App extends Component {
     this.setState({plate5: 0});
     this.setState({plate2: 0});
   }
+  isActive(value) {
+    return 'platenumber ' + ((value !== 0)
+      ? 'active'
+      : 'default');
+  }
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo" alt="logo"/>
           <h2>Weight Calculator</h2>
         </div>
         <Container>
           <Row>
-            <Col>
-            </Col>
+            <Col></Col>
             <Col>
               <form onSubmit={this.handleSubmit}>
                 <label>Weight to lift:</label>
-                <input type="number" id="inputWeight" value={this.state.finals} onChange={this.handleChange}>
-                </input>
+                <input
+                  type="number"
+                  id="inputWeight"
+                  value={this.state.finals}
+                  onChange={this.handleChange}></input>
                 <div>
-                <label>Bar Weight:</label>
-                  <input type="radio" value="35" name="barWeight" onChange={this.onBarWeightChange} /> 35 lb
-        <input type="radio" value="45" name="barWeight" onChange={this.onBarWeightChange} checked={true} /> 45 lb
+                  <label>Bar Weight:</label>
+                  <input
+                    type="radio"
+                    value="35"
+                    name="barWeight"
+                    onChange={this.onBarWeightChange}/>
+                  35 lb
+                  <input
+                    type="radio"
+                    value="45"
+                    name="barWeight"
+                    onChange={this.onBarWeightChange}
+                    checked={true}/>
+                  45 lb
                 </div>
-                <Button color="danger" type="button" onClick={this.handleSubmit}>Submit</Button>
+                <Button color="danger" size="lg" type="button" onClick={this.handleSubmit}>Submit</Button>
               </form>
             </Col>
 
             <Col>
               <label>Plates per side:
-                        <ListGroup>
-                  <ListGroupItem>45: {this.plates.plate45} plate(s)</ListGroupItem>
-                  <ListGroupItem>35: {this.plates.plate35} plate(s)</ListGroupItem>
-                  <ListGroupItem>25: {this.plates.plate25} plate(s)</ListGroupItem>
-                  <ListGroupItem>10: {this.plates.plate10} plate(s)</ListGroupItem>
-                  <ListGroupItem>5: {this.plates.plate5} plate(s)</ListGroupItem>
-                  <ListGroupItem>2.5: {this.plates.plate2} plate(s)</ListGroupItem>
-                  <ListGroupItem>Weight: {this.plates.inputWeight}</ListGroupItem>
+                <ListGroup>
+                  <ListGroupItem className={this.isActive(this.plates.inputWeight)}>Weight: {this.plates.inputWeight}
+                  </ListGroupItem>
+                  <ListGroupItem className={this.isActive(this.plates.plate45)}>45: {this.plates.plate45}
+                  &nbsp;plate(s)</ListGroupItem>
+                  <ListGroupItem className={this.isActive(this.plates.plate35)}>35: {this.plates.plate35}
+                  &nbsp;plate(s)</ListGroupItem>
+                  <ListGroupItem className={this.isActive(this.plates.plate25)}>25: {this.plates.plate25}
+                  &nbsp;plate(s)</ListGroupItem>
+                  <ListGroupItem className={this.isActive(this.plates.plate10)}>10: {this.plates.plate10}
+                  &nbsp;plate(s)</ListGroupItem>
+                  <ListGroupItem className={this.isActive(this.plates.plate5)}>5: {this.plates.plate5}
+                  &nbsp;plate(s)</ListGroupItem>
+                  <ListGroupItem className={this.isActive(this.plates.plate2)}>2.5: {this.plates.plate2}
+                  &nbsp;plate(s)</ListGroupItem>
+
                 </ListGroup>
               </label>
 
             </Col>
-            <Col>
-            </Col>
+            <Col></Col>
           </Row>
         </Container>
         <div className="App-footer footer">
-          
-          <a href="https://twatson071.github.io/#/"><h6>Thomas Watson</h6></a><br></br>
+
+          <a href="https://twatson071.github.io/#/">
+            <h6>Thomas Watson</h6>
+          </a>
+          <br></br>
         </div>
 
       </div>
