@@ -130,7 +130,7 @@ class App extends Component {
         </div>
         <Container>
           <Row>
-          <Col className="margin25" sm={{ size: 'auto'}}>
+          <Col sm={{ size: 'auto', offset: 3 }}>
               <form onSubmit={this.handleSubmit}>
                 <label>Weight to lift:</label>
                 <input
