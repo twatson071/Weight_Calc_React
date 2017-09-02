@@ -21,7 +21,7 @@ class App extends Component {
       plate5: 0,
       plate2: 0,
       barWeight: 45,
-      finals: 0
+      finals: ''
     },
     this.plates = {
       plate45: 0,
@@ -30,7 +30,7 @@ class App extends Component {
       plate10: 0,
       plate5: 0,
       plate2: 0,
-      inputWeight: 0
+      inputWeight: ''
     };
     this.handleChange = this
       .handleChange
@@ -103,9 +103,6 @@ class App extends Component {
     this.setState({plate2: this.state.plate2});
     this.plates.plate2 = this.state.plate2;
 
-    document
-      .getElementById("inputWeight")
-      .value = 0;
     this.reset();
     event.preventDefault();
   }
@@ -136,6 +133,7 @@ isActive(value) {
                   type="number"
                   id="inputWeight"
                   value={this.state.finals}
+                  placeholder="0"
                   onChange={this.handleChange}></input>
                 <div>
                   <label>Bar Weight:</label>
