@@ -130,7 +130,7 @@ class App extends Component {
         </div>
         <Container>
           <Row>
-          <Col sm={{ size: 3, offset: 4 }}>
+          <Col sm={{ size: 'auto', offset: 3 }}>
               <form onSubmit={this.handleSubmit}>
                 <label>Weight to lift:</label>
                 <input
@@ -158,7 +158,7 @@ class App extends Component {
               </form>
             </Col>
 
-            <Col md="3">
+            <Col sm={{ size: 'auto'}}>
               <label>Plates per side:
                 <ListGroup>
                   <ListGroupItem className={this.isActive(this.plates.inputWeight)}>Weight: {this.plates.inputWeight}
