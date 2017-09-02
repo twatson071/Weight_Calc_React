@@ -117,11 +117,9 @@ class App extends Component {
     this.setState({plate5: 0});
     this.setState({plate2: 0});
   }
-  isActive(value) {
-    return 'platenumber ' + ((value !== 0)
-      ? 'active'
-      : 'default');
-  }
+isActive(value) {
+  return 'platenumber ' + ((value !== 0) ? 'active' : 'default');
+}
   render() {
     return (
       <div className="App">
@@ -159,7 +157,7 @@ class App extends Component {
               </form>
             </Col>
 
-            <Col sm={{ size: 'auto', offset: 1 }}>
+            <Col sm={{ size: 'auto'}}>
               <label>Plates per side:
                 <ListGroup>
                   <ListGroupItem className={this.isActive(this.plates.inputWeight)}>Weight: {this.plates.inputWeight}
